@@ -27,3 +27,11 @@ void	AAnimal::makeSound( void ) const{
 std::string	AAnimal::getType( void ) const{
 	return (this->type);
 }
+
+void	AAnimal::setType(std::string str){
+	this->type = str;
+}
+
+void AAnimal::printAddress( void ) const{
+	std::cout << "Address: " << this << "\n";
+}

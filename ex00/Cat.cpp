@@ -6,7 +6,8 @@ Cat::Cat( void ) : Animal()
 	this->type = "Cat";
 }
 
-Cat::Cat( const Cat &n ) {
+Cat::Cat( const Cat &n ) : Animal(n)
+{
 	std::cout << "Cat Copy called!\n";
 	*this = n;
 }

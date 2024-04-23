@@ -13,6 +13,7 @@ class Animal{
 		virtual ~Animal( void );
 
 	virtual void	makeSound( void ) const;
+	void printAddress() const;
 
 	std::string getType() const;
 };

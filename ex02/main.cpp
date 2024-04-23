@@ -4,35 +4,82 @@
 #include "AAnimal.hpp"
 #include "WrongAnimal.hpp"
 
+#define SIZE_GROUP 6
+
 int main()
-{
-	// const AAnimal* meta = new AAnimal();
+ {
+    // const AAnimal* meta = new AAnimal();
 	// const AAnimal meta = AAnimal();
-	const AAnimal* D = new Dog();
-	const AAnimal* C = new Cat();
+	// const AAnimal m = (meta);
+	// const AAnimal m2 = new AAnimal(*(AAnimal*)(meta));
 
-	std::cout << "\n";
-
-	std::cout << D->getType() << std::endl;
-	std::cout << C->getType() << " \n\n";
-
-	C->makeSound(); //will output the c sound!
-	D->makeSound();
-
-	delete D;
-	delete C;
-	
-
-	std::cout << "\n------------------------\n";
-	
-	const AAnimal* animals[4] = { new Dog(), new Dog(), new Cat(), new Cat() };
-    	std::cout << "\n";
-
-    for ( int i = 0; i < 4; i++ ) {
-        animals[i]->makeSound();
+    AAnimal* animalGroup[SIZE_GROUP];
+    
+    std::cout << "------------------CONSTRUCTOR-------------------" << std::endl ;
+    for (int i = 0; i < SIZE_GROUP; i++)
+    {
+        if(i < SIZE_GROUP / 2)
+            animalGroup[i] = new Cat();
+        else
+            animalGroup[i] = new Dog();
     }
-	std::cout << "\n";
-	for ( int i = 0; i < 4; i++ ) {
-        delete animals[i];
+    
+    std::cout << "------------------DESTRUCTOR-------------------" << std::endl ;
+    for (int i = 0; i < SIZE_GROUP; i++)
+    {
+        delete animalGroup[i];    
     }
+    
+    std::cout << "--------------------COPY---------------------" << std::endl ;
+    const Cat cat;
+    const Dog dog;
+    Cat sirius(cat);
+    Dog jake(dog);
+
+    std::cout << "--------------------IDEAS----------------------" << std::endl ;
+    std::cout << "--------->DEFAULT:" << std::endl ;
+    std::cout << *sirius.getBrain()->getIdeas() << std::endl;
+    std::cout << "--------->SIRIUS:" << std::endl ;
+    sirius.getBrain()->setIdeas("I love tuna!");
+    std::cout << "Sirius`s idea: " << *sirius.getBrain()->getIdeas() << std::endl;
+
+    const std::string *ideas;
+    jake.getBrain()->setIdeas("Let`s go to the park!");
+    std::cout << "--------->JAKE:" << std::endl ;
+    ideas = jake.getBrain()->getIdeas();
+    for(int i = 0; i < 3; i++)
+        std::cout << "Jake`s idea: " << ideas[i] << std::endl;
+
+    std::cout << "----------------DEEPCOPIES--BRAIN------------" << std::endl ;
+    Cat originalCat;
+    Cat deepcopyCat;
+    
+    //  originalCat.getBrain()->setIdeas("Let`s go to the park!");
+    deepcopyCat = originalCat;
+
+    originalCat.getBrain()->setIdeas("Let`s go to the park!");
+    std::cout << "--------->ORIGINAL:" << std::endl ;
+    ideas = originalCat.getBrain()->getIdeas();
+    for(int i = 0; i < 3; i++)
+        std::cout << "original`s idea: " << ideas[i] << "\t address: " << &ideas[i] << std::endl;
+    
+    ideas = deepcopyCat.getBrain()->getIdeas();
+    for(int i = 0; i < 3; i++)
+        std::cout << "deep`s idea: " << ideas[i] << "\t\t address: " << &ideas[i] << std::endl;
+
+    std::cout << "----------------DEEPCOPIES------------------" << std::endl ;
+    AAnimal* originalDog = new Dog();
+    AAnimal* deepCopyDog = new Dog(*(Dog*)(originalDog));
+	std::cout << "---------------------------------------" << std::endl ;
+    std::cout << "original addresss: " << std:: endl;
+    originalDog->printAddress();
+    std::cout << "deepcopy addresss: " << std:: endl;
+    deepCopyDog->printAddress();
+
+    std::cout << "---------------------------------------" << std::endl ;
+
+    delete originalDog;
+    delete deepCopyDog;
+
+    return 0;
 }

@@ -16,4 +16,5 @@ class Cat : public AAnimal
 		~Cat( void );
 
 	void	makeSound( void ) const;
+	Brain*	getBrain( void ) const;
 };

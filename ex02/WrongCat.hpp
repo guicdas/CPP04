@@ -6,10 +6,11 @@
 
 class WrongCat : public WrongAnimal
 {
-	protected:
-
 	public:
 		WrongCat( void );
+		WrongCat( const WrongCat &n );
+		WrongCat& operator=( const WrongCat &n);
+		virtual ~WrongCat( void );
 
 	void	makeSound( void ) const;
 };

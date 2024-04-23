@@ -14,6 +14,7 @@ class Animal{
 
 	virtual void	makeSound( void ) const;
 
-	std::string getType() const;
+	std::string getType( void ) const;
 	void	setType(std::string str);
+	void	printAddress( void ) const;
 };

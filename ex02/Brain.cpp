@@ -2,6 +2,7 @@
 
 Brain::Brain( void ){
 	std::cout << "Brain created!\n";
+	this->setIdeas("");
 }
 
 Brain::~Brain( void ) {
@@ -10,13 +11,28 @@ Brain::~Brain( void ) {
 
 Brain::Brain( const Brain &n ) {
 	std::cout << "Brain Copy called!\n";
-	*this = n;
+	for(int i = 0; i < 100 ; i++)
+		ideas[i] = n.ideas[i];
 }
 
 Brain& Brain::operator=( const Brain &n ) {
 	std::cout << "Brain Copy assigment called!\n";
-	( void ) n;
-	// if ( this != &n )
-		// this->ideas = n.ideas;
+
+	if ( this != &n )
+	{
+		for(int i = 0; i < 100 ;i++)
+			this->ideas[i] = n.ideas[i];
+	}
 	return *this;
+}
+
+const std::string      *Brain::getIdeas( void ) const{
+    return ideas;
+}
+
+void    Brain::setIdeas(std::string idea){
+    if (idea.empty())
+        idea = "zzzzzzz...zzzzzzz";
+    for (int i = 0; i < 100; i++)
+        ideas[i] = idea;
 }

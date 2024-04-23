@@ -7,9 +7,10 @@ Cat::Cat( void ) : AAnimal()
 	this->attribute = new Brain();
 }
 
-Cat::Cat( const Cat &n ) {
+Cat::Cat( const Cat &n ) : AAnimal(n)
+{
 	std::cout << "Cat Copy called!\n";
-	*this = n;
+	attribute = new Brain(*n.attribute);
 }
 
 Cat& Cat::operator=( const Cat &n ) {
@@ -17,8 +18,9 @@ Cat& Cat::operator=( const Cat &n ) {
 	if ( this != &n )
 	{
 		this->type = n.type;
-		// this->attribute = n.attribute;
-		this->attribute = new Brain( *n.attribute );
+		if(attribute)
+			delete this->attribute;
+		this->attribute = new Brain( *n.getBrain() );
 	}
 	return *this;
 }
@@ -30,4 +32,8 @@ Cat::~Cat( void ){
 
 void	Cat::makeSound( void) const{
 	std::cout << "Miau!\n";
+}
+
+Brain* Cat::getBrain( void ) const{
+	return (this->attribute);
 }

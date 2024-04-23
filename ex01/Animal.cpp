@@ -31,3 +31,7 @@ std::string	Animal::getType( void ) const{
 void	Animal::setType(std::string str){
 	this->type = str;
 }
+
+void Animal::printAddress( void ) const{
+	std::cout << "Address: " << this << "\n";
+}

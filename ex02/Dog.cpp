@@ -7,9 +7,10 @@ Dog::Dog( void ) : AAnimal()
 	this->attribute = new Brain();
 }
 
-Dog::Dog( const Dog &n ) {
+Dog::Dog( const Dog &n ) : AAnimal(n)
+{
 	std::cout << "Dog Copy called!\n";
-	*this = n;
+	attribute = new Brain(*n.attribute);
 }
 
 Dog& Dog::operator=( const Dog &n ) {
@@ -17,8 +18,9 @@ Dog& Dog::operator=( const Dog &n ) {
 	if ( this != &n )
 	{
 		this->type = n.type;
-		// this->attribute = n.attribute;
-		this->attribute = new Brain( *n.attribute );
+		if(attribute)
+ 			delete this->attribute;
+		this->attribute = new Brain( *n.getBrain() );
 	}
 	return *this;
 }
@@ -30,4 +32,8 @@ Dog::~Dog( void ){
 
 void	Dog::makeSound( void ) const{
 	std::cout << "Woof Woof!\n";
+}
+
+Brain* Dog::getBrain( void ) const{
+	return (this->attribute);
 }

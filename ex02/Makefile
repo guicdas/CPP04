@@ -1,5 +1,5 @@
 CXX				= c++
-CXXFLAGS		= -Wall -Wextra -Werror -std=c++98
+CXXFLAGS		= -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 RM				= rm -fr
 INC				= -I AAnimal.hpp -I Dog.hpp -I Cat.hpp -I WrongAnimal.hpp \
 				-I WrongCat.hpp -I Brain.hpp
