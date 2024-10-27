@@ -33,7 +33,6 @@ int main( void )
 		src->learnMateria(new Cure());
 		ICharacter* bob = new Character("bob");
 		AMateria* tmp = src->createMateria("ice");
-		std::cout << (tmp != NULL) << "\n";
 		bob->equip(tmp);
 		AMateria* tmp2  = src->createMateria("cure");
 		bob->equip(tmp2);
