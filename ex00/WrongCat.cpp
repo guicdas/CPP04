@@ -5,8 +5,7 @@ WrongCat::WrongCat( void ) : WrongAnimal(){
 	this->type = "WrongCat";
 }
 
-WrongCat::WrongCat( const WrongCat &n ) : WrongAnimal(n)
-{
+WrongCat::WrongCat( const WrongCat &n ) : WrongAnimal(n){
 	std::cout << "WrongCat Copy called!\n";
 	*this = n;
 }

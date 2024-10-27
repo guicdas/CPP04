@@ -5,16 +5,16 @@
 
 class Animal{
 	protected:
-		std::string type;
+		std::string	type;
+
 	public:
 		Animal( void );
-		Animal( const Animal &n );
-		Animal& operator=( const Animal &n);
+		Animal( const Animal & );
+		Animal& operator=( const Animal & );
 		virtual ~Animal( void );
 
 	virtual void	makeSound( void ) const;
-
-	std::string getType( void ) const;
-	void	setType(std::string str);
-	void	printAddress( void ) const;
+	std::string		getType( void ) const;
+	void			setType( std::string );
+	void			printAddress( void ) const;
 };

@@ -8,14 +8,14 @@
 class Dog : public Animal
 {
 	private:
-		Brain* attribute;
+		Brain	*attribute;
+
 	public:
 		Dog( void );
-		Dog( const Dog &n);
-		Dog& operator=( const Dog &n);
+		Dog( const Dog & );
+		Dog& operator=( const Dog & );
 		~Dog( void );
 		
 	void	makeSound( void ) const;
-	// void	setType(std::string str);
 	Brain*	getBrain( void ) const;
 };

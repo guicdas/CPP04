@@ -8,11 +8,12 @@
 class Cat : public Animal
 {
 	private:
-		Brain* attribute;
+		Brain	*attribute;
+
 	public:
 		Cat( void );
-		Cat( const Cat &n);
-		Cat& operator=( const Cat &n);
+		Cat( const Cat & );
+		Cat& operator=( const Cat & );
 		~Cat( void );
 
 	void	makeSound( void ) const;

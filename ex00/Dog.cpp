@@ -5,8 +5,7 @@ Dog::Dog( void ) : Animal(){
 	this->type = "Dog";
 }
 
-Dog::Dog( const Dog &n ) : Animal(n)
-{
+Dog::Dog( const Dog &n ) : Animal(n){
 	std::cout << "Dog Copy called!\n";
 	*this = n;
 }

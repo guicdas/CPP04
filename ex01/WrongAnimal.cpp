@@ -17,7 +17,7 @@ WrongAnimal& WrongAnimal::operator=( const WrongAnimal &n ) {
 	std::cout << "WrongAnimal Copy assigment called!\n";
 	if ( this != &n )
 		this->type = n.type;
-	return *this;
+	return (*this);
 }
 
 void	WrongAnimal::makeSound( void ) const{

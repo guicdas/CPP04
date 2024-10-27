@@ -1,18 +1,16 @@
 #include "Cat.hpp"
 
-Cat::Cat( void ) : Animal()
-{
+Cat::Cat( void ) : Animal(){
 	std::cout << "Cat created!\n";
 	this->type = "Cat";
 }
 
-Cat::Cat( const Cat &n ) : Animal(n)
-{
+Cat::Cat( Cat const &n ) : Animal(n){
 	std::cout << "Cat Copy called!\n";
 	*this = n;
 }
 
-Cat& Cat::operator=( const Cat &n ) {
+Cat& Cat::operator=( Cat const &n ) {
 	std::cout << "Cat Copy assigment called!\n";
 	if ( this != &n )
 		this->type = n.type;
