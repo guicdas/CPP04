@@ -9,8 +9,8 @@ class Brain{
 
 	public:
 		Brain( void );
-		Brain( const Brain & );
-		Brain& operator=( const Brain & );
+		Brain( Brain const & );
+		Brain& operator=( Brain const & );
 		~Brain( void );
 
 	std::string const	*getIdeas( void ) const;
