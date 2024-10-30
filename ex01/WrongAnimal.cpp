@@ -8,12 +8,12 @@ WrongAnimal::~WrongAnimal( void ) {
 	std::cout << "WrongAnimal destroyed!\n";
 }
 
-WrongAnimal::WrongAnimal( const WrongAnimal &n ) {
+WrongAnimal::WrongAnimal( WrongAnimal const &n ) {
 	std::cout << "WrongAnimal Copy called!\n";
 	*this = n;
 }
 
-WrongAnimal& WrongAnimal::operator=( const WrongAnimal &n ) {
+WrongAnimal& WrongAnimal::operator=( WrongAnimal const &n ) {
 	std::cout << "WrongAnimal Copy assigment called!\n";
 	if ( this != &n )
 		this->type = n.type;

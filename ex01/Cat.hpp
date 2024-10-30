@@ -12,10 +12,10 @@ class Cat : public Animal
 
 	public:
 		Cat( void );
-		Cat( const Cat & );
-		Cat& operator=( const Cat & );
+		Cat( Cat const & );
+		Cat& operator=( Cat const & );
 		~Cat( void );
 
 	void	makeSound( void ) const;
-	Brain*	getBrain( void ) const;
+	Brain	*getBrain( void ) const;
 };

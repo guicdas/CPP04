@@ -8,8 +8,8 @@ class WrongCat : public WrongAnimal
 {
 	public:
 		WrongCat( void );
-		WrongCat( const WrongCat & );
-		WrongCat& operator=( const WrongCat & );
+		WrongCat( WrongCat const & );
+		WrongCat& operator=( WrongCat const & );
 		virtual ~WrongCat( void );
 
 	void	makeSound( void ) const;
