@@ -8,8 +8,8 @@ class Cat : public Animal
 {
 	public:
 		Cat( void );
-		Cat( const Cat &n );
-		Cat& operator=( const Cat &n );
+		Cat( Cat const & );
+		Cat& operator=( Cat const & );
 		~Cat( void );
 
 	virtual void	makeSound( void ) const;

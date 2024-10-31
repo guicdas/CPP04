@@ -1,27 +1,28 @@
 #include "Animal.hpp"
 
 Animal::Animal( void ) : type("Animal"){
-	std::cout << "Animal created!\n";
+	std::cout << "Animal created!" << std::endl;
 }
 
 Animal::Animal( const Animal &n ) {
-	std::cout << "Animal Copy called!\n";
+	std::cout << "Animal Copy called!" << std::endl;
 	*this = n;
 }
 
 Animal& Animal::operator=( const Animal &n ) {
-	std::cout << "Animal Copy assigment called!\n";
-	if ( this != &n )
-		this->type = n.type;
-	return *this;
+	std::cout << "Animal Copy assigment called!" << std::endl;
+	if ( this == &n )
+		return (*this);
+	this->type = n.type;
+	return (*this);
 }
 
 Animal::~Animal( void ) {
-	std::cout << "Animal destroyed!\n";
+	std::cout << "Animal destroyed!" << std::endl;
 }
 
 void	Animal::makeSound( void ) const{
-	std::cout << "AHHHHHHHH!\n";
+	std::cout << "AHHHHHHHH!" << std::endl;
 }
 
 std::string	Animal::getType( void ) const{
@@ -29,5 +30,5 @@ std::string	Animal::getType( void ) const{
 }
 
 void Animal::printAddress( void ) const{
-	std::cout << "Address: " << this << "\n";
+	std::cout << "Address: " << this << std::endl;
 }

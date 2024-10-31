@@ -17,20 +17,18 @@ Brain::Brain( const Brain &n ) {
 
 Brain& Brain::operator=( const Brain &n ) {
 	std::cout << "Brain Copy assigment called!\n";
-
-	if ( this != &n )
-	{
-		for(int i = 0; i < 100 ;i++)
-			this->ideas[i] = n.ideas[i];
-	}
-	return *this;
+	if ( this == &n )
+		return (*this);
+	for(int i = 0; i < 100 ;i++)
+		this->ideas[i] = n.ideas[i];
+	return (*this);
 }
 
-const std::string      *Brain::getIdeas( void ) const{
+std::string const	*Brain::getIdeas( void ) const{
     return ideas;
 }
 
-void    Brain::setIdeas(std::string idea){
+void    Brain::setIdeas( std::string idea ){
     if (idea.empty())
         idea = "zzzzzzz...zzzzzzz";
     for (int i = 0; i < 100; i++)

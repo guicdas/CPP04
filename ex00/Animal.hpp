@@ -5,15 +5,15 @@
 
 class Animal{
 	protected:
-		std::string type;
+		std::string	type;
+
 	public:
 		Animal( void );
-		Animal( const Animal &n );
-		Animal& operator=( const Animal &n);
+		Animal( const Animal & );
+		Animal& operator=( const Animal & );
 		virtual ~Animal( void );
 
 	virtual void	makeSound( void ) const;
-	void printAddress() const;
-
-	std::string getType() const;
+	void			printAddress( void ) const;
+	std::string		getType( void ) const;
 };

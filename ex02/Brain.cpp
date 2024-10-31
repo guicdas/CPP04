@@ -19,14 +19,13 @@ Brain& Brain::operator=( const Brain &n ) {
 	std::cout << "Brain Copy assigment called!\n";
 
 	if ( this != &n )
-	{
-		for(int i = 0; i < 100 ;i++)
-			this->ideas[i] = n.ideas[i];
-	}
+		return *this;
+	for(int i = 0; i < 100 ;i++)
+		this->ideas[i] = n.ideas[i];
 	return *this;
 }
 
-const std::string      *Brain::getIdeas( void ) const{
+std::string const	*Brain::getIdeas( void ) const{
     return ideas;
 }
 
